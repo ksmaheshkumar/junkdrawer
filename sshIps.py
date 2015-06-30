@@ -44,8 +44,7 @@ def sshIps():
   for i in json_raw['prefixes']:
     if i['region'] not in regionsD:
       regionsD[i['region']] = []
-    else:
-      regionsD[i['region']].append(cidrToWildcard(i['ip_prefix']))
+    regionsD[i['region']].append(cidrToWildcard(i['ip_prefix']))
 
   # I don't think the GLOBAL region is useful in this context, but it's mostly harmless. Leaving in for now.
   for region in regionsD:
